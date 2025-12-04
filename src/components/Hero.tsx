@@ -1,10 +1,28 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
+  const navigate = useNavigate();
+
+  const scrollToServices = () => {
+    const element = document.getElementById('services');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/services');
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-teal-50">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-cyan-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -16,7 +34,7 @@ export default function Hero() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full mb-8 text-sm font-medium"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full mb-8 text-sm font-medium shadow-lg"
         >
           <Sparkles size={16} />
           <span>Established 2024</span>
@@ -49,11 +67,17 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <button className="group px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg font-medium hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
+          <button
+            onClick={scrollToServices}
+            className="group px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg font-medium hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+          >
             Explore Our Services
             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
           </button>
-          <button className="px-8 py-4 border-2 border-emerald-600 text-emerald-600 rounded-lg font-medium hover:bg-emerald-50 transition-all duration-300">
+          <button
+            onClick={() => navigate('/contact')}
+            className="px-8 py-4 border-2 border-emerald-600 text-emerald-600 rounded-lg font-medium hover:bg-emerald-50 hover:scale-105 transition-all duration-300"
+          >
             Get in Touch
           </button>
         </motion.div>

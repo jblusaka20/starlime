@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Sparkles, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -7,12 +8,10 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
-                <Sparkles size={20} />
-              </div>
+            <Link to="/" className="flex items-center gap-2 mb-6 hover:opacity-80 transition-opacity">
+              <img src="/images/logo.png" alt="StarLime Logo" className="h-10 w-10 object-contain" />
               <span className="text-xl font-bold">StarLime</span>
-            </div>
+            </Link>
             <p className="text-gray-400 leading-relaxed mb-4">
               Empowering Progress Through Knowledge, Innovation and Excellence
             </p>
@@ -22,20 +21,20 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-400 hover:text-emerald-400 transition-colors">About Us</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-emerald-400 transition-colors">Services</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-emerald-400 transition-colors">Contact</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">Careers</a></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-emerald-400 transition-colors">About Us</Link></li>
+              <li><Link to="/services" className="text-gray-400 hover:text-emerald-400 transition-colors">Services</Link></li>
+              <li><Link to="/team" className="text-gray-400 hover:text-emerald-400 transition-colors">Our Team</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-emerald-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-bold mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">Research & Consulting</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">Audit & Taxation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">General Services</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">Training & Development</a></li>
+              <li><Link to="/services" className="text-gray-400 hover:text-emerald-400 transition-colors">Research & Consulting</Link></li>
+              <li><Link to="/services" className="text-gray-400 hover:text-emerald-400 transition-colors">Audit & Taxation</Link></li>
+              <li><Link to="/services" className="text-gray-400 hover:text-emerald-400 transition-colors">General Services</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-emerald-400 transition-colors">Get Started</Link></li>
             </ul>
           </div>
 
