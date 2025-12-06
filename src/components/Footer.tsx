@@ -67,9 +67,9 @@ export default function Footer() {
             <p className="text-gray-400 text-sm">
               © 2024 StarLime Consultant & General Dealer Limited. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors">Terms of Service</a>
+            <div className="flex gap-6 text-sm flex-wrap justify-center md:justify-end">
+              <Link to="/privacy" className="text-gray-400 hover:text-emerald-400 transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="text-gray-400 hover:text-emerald-400 transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>
